@@ -21,11 +21,7 @@ Rails.application.routes.draw do
       get '/assessments/:assessment_id/take', to: "allocations#take"
       post '/assessments/:assessment_id/submit', to: "allocations#submit"
       post '/assessments/:assessment_id/take_coding_assessment', to: "allocations#take_coding_assessment"
-      post '/compile_code', to: "coding_questions#compile"
-      # post 'code_compiler/compile', to: 'code_compiler#compile'
-
-
-
+      post '/compile_code', to: 'compiler#compile_code'
     end
   end
 end

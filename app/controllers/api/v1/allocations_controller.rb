@@ -12,10 +12,17 @@ class Api::V1::AllocationsController < ApplicationController
     render json: @allocations
   end
 
+#====================================================
+        # GET /api/v1/allocations/:allocation_id
+#====================================================
+
   def show
     render json: @allocation
   end
 
+#====================================================
+        # POST /api/v1/allocations
+#====================================================
   def create
     @allocation = Allocation.new(allocation_params)
   rescue ArgumentError => e
@@ -27,6 +34,10 @@ class Api::V1::AllocationsController < ApplicationController
     end
   end
 
+#====================================================
+        # DEL /api/v1/allocations/allocation_id
+#====================================================
+
   def destroy
   if @allocation.destroy
     render json: @allocation
@@ -34,11 +45,17 @@ class Api::V1::AllocationsController < ApplicationController
     render json: {error: @allocation.errors.full_messages}
   end  end
 
+#====================================================
+        # GET /api/v1/assessments/:assessment_id/take
+#====================================================
 
   def take
     assessment = Assessment.find(params[:assessment_id])
     render json: take_assessment(assessment)
   end
+#====================================================
+  # POST   /api/v1/assessments/:assessment_id/submit
+#====================================================
 
   def submit
     @assessment = Assessment.find(params[:assessment_id]).questions
@@ -62,7 +79,7 @@ class Api::V1::AllocationsController < ApplicationController
 
   # def take_coding_assessment
   #   byebug
-  #   code = params[:code]  
+  #   code = params[:code]
   #   language = params[:language]
 
   #   jdoodle_service = JDoodleService.new(

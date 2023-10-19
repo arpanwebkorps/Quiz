@@ -59,3 +59,5 @@ gem 'httparty'
 gem 'json'
 
 gem 'dotenv-rails', groups: [:development, :test]
+
+gem 'net-http'

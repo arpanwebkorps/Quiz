@@ -84,11 +84,15 @@ class Api::V1::AssessmentsController < ApiController
     end
   end
 
+#======================================================================
+        # GET /api/v1/assessments/show_assign_assessments
+#======================================================================
 
   def show_assign_assessments
     @assessements = Assessment.all
     render json: @assessments
   end
+  
   private
 
   def assigned_assessments_data(assessments)

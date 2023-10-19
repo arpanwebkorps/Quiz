@@ -91,8 +91,9 @@ class Api::V1::AssessmentsController < ApiController
   def show_assign_assessments
     @assessements = Assessment.all
     render json: @assessments
+
   end
-  
+
   private
 
   def assigned_assessments_data(assessments)

@@ -89,10 +89,9 @@ class Api::V1::AssessmentsController < ApiController
 #======================================================================
 
   def show_assign_assessments
-    if assessements.save?
     @assessements = Assessment.all
     render json: @assessments
-    end
+
   end
 
   private
